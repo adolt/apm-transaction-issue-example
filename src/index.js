@@ -1,8 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { init } from '@elastic/apm-rum';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+init({
+  serviceName: 'apm-rum',
+  serverUrl: window.location.origin + '/.netlify/functions/apm-server',
+})
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
